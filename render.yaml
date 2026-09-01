@@ -2,9 +2,9 @@ services:
   - type: web
     name: breast-cancer-predictor
     env: python
-    pythonVersion: 3.7
+    pythonVersion: 3.10
     plan: free
-    buildCommand: pip install --upgrade pip && pip install --no-cache-dir numpy==1.19.5 && pip install --no-cache-dir -r requirements.txt
+    buildCommand: pip cache purge && pip install --upgrade pip && pip install -r requirements.txt
     startCommand: streamlit run app.py
     envVars:
       - key: STREAMLIT_SERVER_PORT
