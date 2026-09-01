@@ -206,16 +206,37 @@ st.markdown("""
 # LOAD MODEL
 # ============================================================
 
+st.write("Loading model...")
+
 @st.cache_resource
 def load_models():
+    try:
+        model_path = "final_breast_cancer_model.pkl"
+        scaler_path = "final_breast_cancer_scaler.pkl"
+        
+        if not os.path.exists(model_path):
+            st.error(f"❌ Model file not found: {model_path}")
+            st.stop()
+        
+        if not os.path.exists(scaler_path):
+            st.error(f"❌ Scaler file not found: {scaler_path}")
+            st.stop()
+        
+        model = joblib.load(model_path)
+        scaler = joblib.load(scaler_path)
+        
+        return model, scaler
+    except Exception as e:
+        st.error(f"❌ Error loading model: {str(e)}")
+        st.stop()
 
-    model = joblib.load("final_breast_cancer_model.pkl")
-    scaler = joblib.load("final_breast_cancer_scaler.pkl")
 
-    return model, scaler
-
-
-model, scaler = load_models()
+try:
+    model, scaler = load_models()
+    st.write("✅ Model loaded successfully!")
+except Exception as e:
+    st.error(f"Failed to load model: {e}")
+    st.stop()
 
 
 # ============================================================
