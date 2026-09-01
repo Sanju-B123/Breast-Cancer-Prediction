@@ -2,9 +2,9 @@ services:
   - type: web
     name: breast-cancer-predictor
     env: python
-    pythonVersion: 3.11
+    pythonVersion: 3.10
     plan: free
-    buildCommand: pip install -r requirements.txt
+    buildCommand: pip install --no-cache-dir -r requirements.txt
     startCommand: streamlit run app.py
     envVars:
       - key: STREAMLIT_SERVER_PORT
@@ -13,3 +13,5 @@ services:
         value: 0.0.0.0
       - key: STREAMLIT_SERVER_HEADLESS
         value: true
+      - key: STREAMLIT_SERVER_ENABLE_CORS
+        value: false
