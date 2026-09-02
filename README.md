@@ -1,113 +1,117 @@
-# Breast Cancer Prediction 🩺
+# OncoPredict AI — Breast Cancer Prediction System 🩺
 
-A machine learning web application for breast tumor classification as **Benign** or **Malignant** using Logistic Regression.
+An AI-powered clinical decision support and tumor classification platform built with **Python**, **Scikit-Learn**, and **Streamlit**. The system predicts whether a breast tumor is **Benign or Malignant** using 30 cell morphology characteristics derived from Fine Needle Aspirate (FNA) biopsies.
 
-## Features
+---
 
-- 🤖 **ML Model**: Logistic Regression with 96.49% accuracy
-- 📊 **30 Features**: Comprehensive tumor measurements
-- 📈 **High Performance**: 97.50% precision, 99.60% ROC-AUC
-- 🎨 **Interactive UI**: Built with Streamlit
-- ⚡ **Fast Inference**: Real-time predictions
+## 🌟 Key Highlights
 
-## Deployment on Render
+- **🎯 High Accuracy**: **96.49%** Test Accuracy & **99.60%** ROC-AUC with calibrated Logistic Regression.
+- **🔬 30 Clinical Biomarkers**: Categorized into **Mean**, **Standard Error (SE)**, and **Worst (Extreme)** morphological features.
+- **✨ Modern Healthcare UI**: Custom medical design system with Glassmorphic cards, soft gradients, responsive metrics, and interactive Plotly analytics.
+- **⚡ Quick Case Presets**: One-click demo buttons for verified Benign and Malignant cases for instant portfolio demonstrations.
+- **📊 In-Depth Model Diagnostics**: Confusion matrix heatmaps, feature importance coefficients, and mathematical breakdowns.
 
-### Prerequisites
-- GitHub account with the repository pushed
-- Render account (free tier available at https://render.com)
+---
 
-### Steps to Deploy
+## 🧭 Application Architecture
 
-1. **Push your code to GitHub**
-   ```bash
-   git add .
-   git commit -m "Prepare for Render deployment"
-   git push origin main
-   ```
+1. **📊 Executive Dashboard & Validation**
+   - Core KPI scorecards (96.49% Accuracy, 569 Cases, 30 Metrics, 99.60% ROC-AUC).
+   - End-to-End Machine Learning Pipeline Architecture diagram.
+   - Morphological grouping breakdown table.
+   - Integrated Model Validation metrics & Confusion Matrix heatmap.
 
-2. **Connect to Render**
-   - Go to [https://dashboard.render.com](https://dashboard.render.com)
-   - Click "New +" → "Web Service"
-   - Connect your GitHub account and select this repository
+2. **🔬 Diagnostic Prediction Console**
+   - 3-tier organized input interface (Mean, SE, Worst) with intuitive tabs (Size/Geometry, Texture/Contour, Symmetry/Fractal).
+   - Quick one-click clinical benchmark presets (Benign Low Risk, Malignant High Risk, Median Baseline).
+   - Real-time diagnostic risk assessment cards with confidence scoring and probability distributions.
+   - Detailed technical diagnostics with scaled z-score vectors.
 
-3. **Configure the Service**
-   - **Name**: `breast-cancer-predictor` (or your preferred name)
-   - **Environment**: `Python`
-   - **Region**: Choose closest to you
-   - **Branch**: `main`
-   - **Build Command**: Leave as default or ensure it runs `pip install -r requirements.txt`
-   - **Start Command**: `streamlit run app.py`
-   - **Instance Type**: Free tier (adequate for this app)
+---
 
-4. **Environment Variables** (Auto-configured in render.yaml)
-   - `STREAMLIT_SERVER_PORT`: 10000
-   - `STREAMLIT_SERVER_ADDRESS`: 0.0.0.0
-   - `STREAMLIT_SERVER_HEADLESS`: true
+## 🛠️ Technology Stack
 
-5. **Deploy**
-   - Click "Create Web Service"
-   - Wait for deployment to complete (2-5 minutes)
-   - Access your app at the provided Render URL
+- **Frontend & App Framework**: [Streamlit](https://streamlit.io/)
+- **Machine Learning**: [Scikit-Learn](https://scikit-learn.org/) (Logistic Regression, StandardScaler)
+- **Data Engineering**: [Pandas](https://pandas.pydata.org/), [NumPy](https://numpy.org/)
+- **Interactive Visualizations**: [Plotly](https://plotly.com/python/)
+- **Model Serialization**: [Joblib](https://joblib.readthedocs.io/)
 
-### Alternative: Using render.yaml (One-Click Deploy)
-If you have the `render.yaml` file committed:
-1. Go to [https://dashboard.render.com](https://dashboard.render.com)
-2. Click "New +" → "Web Service"
-3. Select "Deploy with render.yaml" option (if available)
-4. Render will auto-configure based on the YAML file
+---
 
-## Local Development
+## 🚀 Quick Start & Local Development
 
-### Install Dependencies
+### 1. Clone & Setup Environment
+```bash
+git clone https://github.com/Sanju-B123/Breast-Cancer-Prediction.git
+cd Breast-Cancer-Prediction
+```
+
+### 2. Install Dependencies
 ```bash
 pip install -r requirements.txt
 ```
 
-### Run the App
+### 3. Launch the Application
 ```bash
 streamlit run app.py
 ```
+Open your browser and navigate to `http://localhost:8501`.
 
-The app will be available at `http://localhost:8501`
+---
 
-## Project Structure
+## ☁️ Deployment
+
+### Deploy to Render
+The repository is pre-configured with `render.yaml`, `Procfile`, and `.streamlit/config.toml` for seamless deployment:
+- **Build Command**: `pip install --upgrade pip && pip install -r requirements.txt`
+- **Start Command**: `streamlit run app.py --server.port $PORT --server.address 0.0.0.0 --server.headless true --server.enableCORS false --server.enableXsrfProtection false`
+
+### Deploy to Streamlit Community Cloud
+1. Fork / push this repository to GitHub.
+2. Sign in to [share.streamlit.io](https://share.streamlit.io/).
+3. Select your repository and set `app.py` as the main entry point.
+
+---
+
+## 📂 Project Structure
 
 ```
-├── app.py                              # Main Streamlit application
+├── app.py                              # Main Streamlit web application & UI
 ├── final_breast_cancer_model.pkl       # Trained Logistic Regression model
-├── final_breast_cancer_scaler.pkl      # Feature scaler
+├── final_breast_cancer_scaler.pkl      # Trained StandardScaler artifact
 ├── requirements.txt                    # Python dependencies
-├── render.yaml                         # Render deployment config
-├── .streamlit/config.toml              # Streamlit configuration
-├── hero.png                            # Hero image
-├── workflow.png                        # ML workflow diagram
-└── README.md                           # This file
+├── render.yaml                         # Render deployment configuration
+├── Procfile                            # Web server start command
+├── .streamlit/
+│   └── config.toml                     # Streamlit server & theme configuration
+├── hero.png                            # Hero branding image
+├── workflow.png                        # Machine learning workflow diagram
+├── performance.png                     # Model performance summary chart
+└── README.md                           # Project documentation
 ```
 
-## Model Details
+---
 
-- **Algorithm**: Logistic Regression
-- **Features**: 30 tumor characteristics
-- **Training Samples**: 455
-- **Testing Samples**: 114
-- **Accuracy**: 96.49%
-- **Precision**: 97.50%
-- **Recall**: 92.86%
-- **F1 Score**: 95.12%
-- **ROC-AUC**: 99.60%
+## 📈 Model Performance Summary
 
-## Technology Stack
+| Metric | Score | Clinical Interpretation |
+| :--- | :--- | :--- |
+| **Accuracy** | **96.49%** | Overall correct classifications across 114 test samples |
+| **Precision** | **97.50%** | Minimizes false positive malignancy alarms |
+| **Recall (Sensitivity)**| **92.86%** | High sensitivity for detecting malignant cases |
+| **F1-Score** | **95.12%** | Harmonic mean of precision and recall |
+| **ROC-AUC** | **99.60%** | Exceptional discriminative power across threshold spectrum |
 
-- **Framework**: Streamlit
-- **ML Library**: Scikit-learn
-- **Data Processing**: Pandas, NumPy
-- **Model Serialization**: Joblib
-- **Deployment**: Render
+---
 
-## Important Disclaimer
+## ⚠️ Medical Disclaimer
 
-⚠️ **This is an educational project and NOT intended for clinical diagnosis or medical decision-making. Always consult with qualified healthcare professionals for medical advice.**
+*This application is developed strictly for **academic, research, and portfolio demonstration purposes**. It does not constitute medical advice or a clinical diagnosis. Always consult a qualified medical professional for health evaluations.*
 
-## License
+---
 
-This project is open source and available under the MIT License.
+## 📄 License
+
+This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.
