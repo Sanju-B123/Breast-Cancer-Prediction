@@ -112,6 +112,3 @@ The repository is pre-configured with `render.yaml`, `Procfile`, and `.streamlit
 
 ---
 
-## 📄 License
-
-This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.
